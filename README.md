@@ -1,59 +1,193 @@
-# Giới thiệu:
-Đây là một repository được fork lại từ [https://github.com/bclswl0827/v2ray-heroku](https://github.com/bclswl0827/v2ray-heroku) với chức năng là tạo ra một server V2Ray trên heroku một cách đơn giản nhất.
+# Mapbox Navigation Android App
 
-Heroku sẽ không khuyến khích việc này nên các bạn cần phải fork lại dự án này để không bị heroku chặn.
+Ứng dụng điều hướng Mapbox đầy đủ tính năng cho Android với Empty View Activity.
 
-Với nhu cầu không quá cao thì heroku chính là giải pháp hoàn hảo cho anh em muốn dùng V2Ray để dùng 4G miễn phí:
-* 2TB mỗi tháng
-* 550 giờ mỗi tháng (~23 ngày, dĩ nhiên bạn cần ngủ 8 tiếng 1 ngày nên 550 giờ là quá đủ)
+## Tính năng chính
 
-Anh em xem hướng dẫn ở đây nhé:
+### 🗺️ Maps & Navigation
+- **Mapbox Maps SDK**: Hiển thị bản đồ tương tác
+- **Navigation Camera**: Camera tự động theo dõi vị trí
+- **Route Line**: Vẽ tuyến đường trên bản đồ
+- **Route Arrow**: Mũi tên chỉ hướng đi
+- **Route Callouts**: Thông tin chi tiết về tuyến đường
 
-[![4G Free](https://img.youtube.com/vi/79jkqGWi0zU/0.jpg)](https://www.youtube.com/watch?v=79jkqGWi0zU)
+### 📍 Location Tracking
+- **Current Location**: Định vị vị trí hiện tại
+- **Location Updates**: Cập nhật vị trí real-time
+- **Location Permissions**: Quản lý quyền truy cập vị trí
 
-=============================================================
+### 🎤 Voice Instructions
+- **Voice Guidance**: Hướng dẫn bằng giọng nói
+- **Maneuver Instructions**: Hướng dẫn thao tác chi tiết
+- **Voice Toggle**: Bật/tắt hướng dẫn giọng nói
 
-# V2Ray Heroku
+### 🚦 Advanced Features
+- **Speed Limit**: Hiển thị giới hạn tốc độ
+- **Trip Progress**: Theo dõi tiến trình chuyến đi
+- **Arrival Detection**: Phát hiện đến đích
+- **Building Highlights**: Làm nổi bật tòa nhà
+- **Device Notifications**: Thông báo thiết bị
+- **Signboards**: Hiển thị biển báo
+- **Junctions**: Giao lộ phức tạp
 
-**Nếu bạn cần triển khai V2Ray VLESS，thì qua bài viết này [vless](https://github.com/bclswl0827/v2ray-heroku/tree/vless)**
+## Cài đặt
 
-## Tổng quan
+### 1. Yêu cầu hệ thống
+- Android Studio Arctic Fox trở lên
+- Android SDK 24+ (Android 7.0)
+- Kotlin 1.8+
 
-Dự án V2Ray WebSocket trên Heroku phải được sử dụng một cách hợp lý nếu không sẽ bị chặn
+### 2. Mapbox Access Token
+1. Đăng ký tài khoản tại [Mapbox](https://account.mapbox.com/)
+2. Tạo access token tại [Access Tokens](https://account.mapbox.com/access-tokens/)
+3. Thay thế `YOUR_MAPBOX_ACCESS_TOKEN` trong file `app/src/main/res/values/mapbox_access_token.xml`
 
-Sau khi triển khai, mỗi khi khởi động sẽ tải bản V2Ray mới nhất
+### 3. Dependencies
+Tất cả dependencies đã được cấu hình trong `app/build.gradle`:
 
-## Triển khai
+```gradle
+// Mapbox Navigation SDK
+implementation 'com.mapbox.navigation:android:2.18.0'
+implementation 'com.mapbox.navigation:ui:2.18.0'
+implementation 'com.mapbox.navigation:ui-maps:2.18.0'
+implementation 'com.mapbox.navigation:ui-voice:2.18.0'
+// ... và nhiều module khác
+```
 
-### Bắt đầu
+### 4. Permissions
+Ứng dụng yêu cầu các quyền sau:
+- `ACCESS_FINE_LOCATION`: Truy cập vị trí chính xác
+- `ACCESS_COARSE_LOCATION`: Truy cập vị trí gần đúng
+- `RECORD_AUDIO`: Ghi âm cho voice instructions
+- `POST_NOTIFICATIONS`: Gửi thông báo
+- `INTERNET`: Kết nối internet
 
- 1. Fork dự án này qua tài khoản GitHub của bạn（trên PC có thể thấy nút Fork trên cùng bên tay phải, ví dụ tài khoản của bạn tên là `example`）
- 2. Sửa lại tên dự án thành tên bất kỳ không nên chứa hai từ khóa `v2ray` và `heroku`（Ví dụ đổi thành `demo`）
- 3. Sửa lại file `README.md`，đường dẫn `kim7tin/v2heroku` bằng đường dẫn của bạn（ví dụ `example/demo`）
+## Cấu trúc dự án
 
-> [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://dashboard.heroku.com/new?template=https://github.com/kim7tin/v2heroku)
+```
+app/
+├── src/main/
+│   ├── java/com/example/mapboxnavigation/
+│   │   ├── MainActivity.kt              # Activity chính
+│   │   ├── NavigationHelper.kt          # Helper cho navigation
+│   │   └── UIComponentsManager.kt       # Quản lý UI components
+│   ├── res/
+│   │   ├── layout/
+│   │   │   └── activity_main.xml        # Layout chính
+│   │   ├── values/
+│   │   │   ├── strings.xml              # String resources
+│   │   │   ├── colors.xml               # Color resources
+│   │   │   ├── themes.xml               # Theme resources
+│   │   │   └── mapbox_access_token.xml  # Mapbox token
+│   │   └── xml/
+│   │       ├── backup_rules.xml         # Backup rules
+│   │       └── data_extraction_rules.xml # Data extraction rules
+│   └── AndroidManifest.xml              # Manifest file
+├── build.gradle                         # App build configuration
+└── proguard-rules.pro                   # ProGuard rules
+```
 
- 4. Quay lại trang chủ của dự án，bấm vào liên kết để triển khai V2Ray
+## Sử dụng
 
-### Đối số
+### 1. Khởi động ứng dụng
+- Mở ứng dụng và cấp quyền truy cập vị trí
+- Ứng dụng sẽ tự động định vị vị trí hiện tại
 
-Các đối số sẽ dùng trong quá trình cài đặt。
+### 2. Bắt đầu điều hướng
+- Nhấn nút "Bắt đầu điều hướng"
+- Ứng dụng sẽ tính toán tuyến đường đến đích mặc định (TP.HCM)
+- Camera sẽ tự động theo dõi vị trí
 
-| Đối số | Mặc định | Diễn giải |
-| :--- | :--- | :--- |
-| `ID` | `ad806487-2d26-4636-98b6-ab85cc8521f7` | VMess user ID |
-| `AID` | `64` | AlterID，Số từ 0 đến 65535 |
-| `WSPATH` | `/` | |
+### 3. Điều khiển tính năng
+- **Giọng nói**: Bật/tắt hướng dẫn bằng giọng nói
+- **Giới hạn tốc độ**: Hiển thị giới hạn tốc độ hiện tại
+- **Tiến trình**: Theo dõi khoảng cách và thời gian còn lại
 
-## Truy cập CloudFlare
+### 4. Dừng điều hướng
+- Nhấn nút "Dừng điều hướng" để kết thúc
 
-Hai phương pháp sau có thể kết nối ứng dụng với CloudFlare, từ đó tăng tốc độ ở một mức độ nhất định:
+## Tính năng chi tiết
 
-1. Liên kết tên miền với ứng dụng và kết nối tên miền với CloudFlare
-2. Reverse proxy thông qua CloudFlare worker 
+### Navigation Camera
+- Tự động theo dõi vị trí người dùng
+- Zoom và pan thông minh
+- Animation mượt mà
 
-## Lưu ý
+### Route Visualization
+- **Route Line**: Đường kẻ màu xanh hiển thị tuyến đường
+- **Route Arrow**: Mũi tên chỉ hướng đi tiếp theo
+- **Route Callouts**: Popup thông tin chi tiết
 
- 1. ** Xin đừng lạm dụng dự án này, có rất ít dịch vụ miễn phí như Heroku, hãy sử dụng và trân trọng **
- 2. Nếu bạn sử dụng tên miền để kết nối với CloudFlare, vui lòng xem xét bật TLS 1.3 
- 3. Hầu hết các địa chỉ AWS IPv4 đã bị Twitter chặn 
+### Voice Instructions
+- Hướng dẫn bằng tiếng Việt
+- Tự động phát khi có thay đổi hướng
+- Có thể bật/tắt theo ý muốn
+
+### Advanced UI Components
+- **Speed Limit**: Hiển thị giới hạn tốc độ hiện tại
+- **Trip Progress**: Khoảng cách và thời gian còn lại
+- **Maneuver Instructions**: Hướng dẫn thao tác chi tiết
+- **Building Highlights**: Làm nổi bật tòa nhà quan trọng
+
+## Tùy chỉnh
+
+### Thay đổi đích đến
+Trong `MainActivity.kt`, thay đổi tọa độ đích:
+
+```kotlin
+// Thay đổi tọa độ đích (kinh độ, vĩ độ)
+val destination = Point.fromLngLat(106.6297, 10.8231)
+```
+
+### Thay đổi style bản đồ
+Trong `setupMap()`, thay đổi style:
+
+```kotlin
+mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS) { style ->
+    // Các style khác: MAPBOX_SATELLITE, MAPBOX_OUTDOORS, etc.
+}
+```
+
+### Tùy chỉnh màu sắc
+Trong `colors.xml`, thay đổi màu sắc:
+
+```xml
+<color name="mapbox_blue">#3B82F6</color>
+<color name="mapbox_red">#EF4444</color>
+```
+
+## Troubleshooting
+
+### Lỗi thường gặp
+
+1. **"Chưa có vị trí hiện tại"**
+   - Kiểm tra quyền truy cập vị trí
+   - Đảm bảo GPS được bật
+   - Kiểm tra kết nối internet
+
+2. **"Lỗi tính toán tuyến đường"**
+   - Kiểm tra Mapbox access token
+   - Kiểm tra kết nối internet
+   - Kiểm tra tọa độ đích có hợp lệ
+
+3. **Voice instructions không hoạt động**
+   - Kiểm tra quyền RECORD_AUDIO
+   - Kiểm tra volume thiết bị
+   - Kiểm tra cài đặt voice trong ứng dụng
+
+### Debug
+Bật log để debug:
+
+```kotlin
+Log.d(TAG, "Debug message")
+```
+
+## Tài liệu tham khảo
+
+- [Mapbox Navigation SDK](https://docs.mapbox.com/android/navigation/)
+- [Mapbox Maps SDK](https://docs.mapbox.com/android/maps/)
+- [Android Location Services](https://developers.google.com/location-context/fused-location-provider)
+
+## License
+
+Dự án này sử dụng Mapbox SDK với license riêng. Vui lòng tham khảo [Mapbox Terms of Service](https://www.mapbox.com/legal/tos) để biết thêm chi tiết.

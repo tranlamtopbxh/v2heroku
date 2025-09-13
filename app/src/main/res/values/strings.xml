@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Mapbox Navigation</string>
+    <string name="mapbox_access_token">YOUR_MAPBOX_ACCESS_TOKEN</string>
+    <string name="navigation_start">Bắt đầu điều hướng</string>
+    <string name="navigation_stop">Dừng điều hướng</string>
+    <string name="location_permission_required">Cần cấp quyền truy cập vị trí để sử dụng tính năng điều hướng</string>
+    <string name="location_permission_denied">Quyền truy cập vị trí bị từ chối</string>
+    <string name="voice_instructions_enabled">Hướng dẫn bằng giọng nói đã bật</string>
+    <string name="voice_instructions_disabled">Hướng dẫn bằng giọng nói đã tắt</string>
+    <string name="navigation_started">Điều hướng đã bắt đầu</string>
+    <string name="navigation_stopped">Điều hướng đã dừng</string>
+    <string name="route_calculated">Tuyến đường đã được tính toán</string>
+    <string name="arrival_detected">Đã đến đích</string>
+    <string name="speed_limit">Giới hạn tốc độ</string>
+    <string name="trip_progress">Tiến trình chuyến đi</string>
+    <string name="maneuver_instruction">Hướng dẫn thao tác</string>
+    <string name="junction_view">Giao lộ</string>
+    <string name="signboard">Biển báo</string>
+    <string name="building_highlight">Tòa nhà nổi bật</string>
+    <string name="device_notification">Thông báo thiết bị</string>
+</resources>
