@@ -1,0 +1,58 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GPSDEV" parent="Theme.Material3.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/navigation_blue</item>
+        <item name="colorPrimaryVariant">@color/navigation_blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background_primary</item>
+    </style>
+    
+    <!-- Navigation UI Theme -->
+    <style name="NavigationTheme" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/navigation_blue</item>
+        <item name="colorPrimaryVariant">@color/navigation_blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:statusBarColor">@color/navigation_blue_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    
+    <!-- Button styles -->
+    <style name="NavigationButton" parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/navigation_blue</item>
+    </style>
+    
+    <style name="NavigationButton.Secondary" parent="NavigationButton">
+        <item name="backgroundTint">@color/navigation_gray</item>
+    </style>
+    
+    <!-- Text styles -->
+    <style name="NavigationText.Primary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="NavigationText.Secondary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+    
+    <style name="NavigationText.Hint">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_hint</item>
+    </style>
+</resources>
