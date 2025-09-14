@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">GPSDEV</string>
+    <string name="mapbox_access_token">YOUR_MAPBOX_ACCESS_TOKEN</string>
+    
+    <!-- Navigation strings -->
+    <string name="navigation_start">Bắt đầu</string>
+    <string name="navigation_stop">Dừng</string>
+    <string name="navigation_center">Định vị</string>
+    <string name="navigation_voice_on">Bật giọng nói</string>
+    <string name="navigation_voice_off">Tắt giọng nói</string>
+    <string name="navigation_mute">Tắt tiếng</string>
+    <string name="navigation_unmute">Bật tiếng</string>
+    
+    <!-- Location strings -->
+    <string name="location_permission_required">Cần quyền truy cập vị trí để sử dụng tính năng định vị</string>
+    <string name="location_permission_denied">Quyền truy cập vị trí bị từ chối</string>
+    <string name="location_not_found">Không tìm thấy vị trí</string>
+    <string name="location_searching">Đang tìm kiếm vị trí...</string>
+    
+    <!-- Route strings -->
+    <string name="route_calculating">Đang tính toán tuyến đường...</string>
+    <string name="route_not_found">Không tìm thấy tuyến đường</string>
+    <string name="route_ready">Tuyến đường đã sẵn sàng</string>
+    
+    <!-- Trip strings -->
+    <string name="trip_duration">Thời gian</string>
+    <string name="trip_distance">Khoảng cách</string>
+    <string name="trip_eta">Dự kiến đến</string>
+    <string name="trip_speed">Tốc độ</string>
+    
+    <!-- Traffic strings -->
+    <string name="traffic_light">Đèn giao thông</string>
+    <string name="speed_limit">Giới hạn tốc độ</string>
+    <string name="traffic_jam">Kẹt xe</string>
+    <string name="road_work">Công trình đường</string>
+    
+    <!-- Voice guidance strings -->
+    <string name="voice_guidance_turn_left">Rẽ trái</string>
+    <string name="voice_guidance_turn_right">Rẽ phải</string>
+    <string name="voice_guidance_go_straight">Đi thẳng</string>
+    <string name="voice_guidance_uturn">Quay đầu</string>
+    <string name="voice_guidance_arrive">Đã đến nơi</string>
+</resources>
